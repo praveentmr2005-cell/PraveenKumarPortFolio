@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Index from "./pages/Index";
-import Research from "./pages/research";
+import Research from "./pages/Research";
 import LimitOrderBook from "./pages/projects/LimitOrderBook";
 import NotFound from "./pages/NotFound";
 
