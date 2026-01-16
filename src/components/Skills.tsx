@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Skills = () => {
   const skills = {
     systems: [
@@ -47,96 +49,91 @@ const Skills = () => {
     "Designing cloud-native systems with operational visibility"
   ];
 
+  const skillSections = [
+    { title: "Systems & Backend Engineering", items: skills.systems },
+    { title: "ML Systems & GenAI", items: skills.mlSystems },
+    { title: "Implementation Stack", items: skills.implementation },
+    { title: "Infrastructure & Data", items: skills.infrastructure },
+    { title: "Tooling & Delivery", items: skills.tooling }
+  ];
+
   return (
-    <section id="skills" className="py-24 border-t border-border">
-      <div className="container mx-auto px-6">
-        <p className="section-heading">Skills & Capabilities</p>
+    <section id="skills" className="py-24 border-t border-border/50 relative">
+      {/* Background accent */}
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-accent/[0.02] rounded-full blur-3xl pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.p
+          className="section-heading"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          Skills & Capabilities
+        </motion.p>
 
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Capabilities */}
-          <div className="space-y-8">
-            <div>
-              <h3 className="text-sm font-medium text-foreground mb-3">
-                Systems & Backend Engineering
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.systems.map((skill) => (
-                  <span key={skill} className="tech-tag">
-                    {skill}
-                  </span>
-                ))}
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+            {skillSections.map((section, sectionIndex) => (
+              <div key={section.title}>
+                <h3 className="text-sm font-medium text-foreground mb-3">
+                  {section.title}
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {section.items.map((skill, i) => (
+                    <motion.span
+                      key={skill}
+                      className="tech-tag"
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.3, delay: 0.2 + sectionIndex * 0.05 + i * 0.03 }}
+                      whileHover={{ scale: 1.05, y: -2 }}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-foreground mb-3">
-                ML Systems & GenAI
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.mlSystems.map((skill) => (
-                  <span key={skill} className="tech-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-foreground mb-3">
-                Implementation Stack
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.implementation.map((skill) => (
-                  <span key={skill} className="tech-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-foreground mb-3">
-                Infrastructure & Data
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.infrastructure.map((skill) => (
-                  <span key={skill} className="tech-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h3 className="text-sm font-medium text-foreground mb-3">
-                Tooling & Delivery
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.tooling.map((skill) => (
-                  <span key={skill} className="tech-tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </div>
+            ))}
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
             <h2 className="text-2xl font-semibold mb-8">
               What I Work On
             </h2>
             <ul className="space-y-4">
-              {services.map((service) => (
-                <li key={service} className="flex items-start gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <span className="text-muted-foreground">
+              {services.map((service, i) => (
+                <motion.li
+                  key={service}
+                  className="flex items-start gap-3 group"
+                  initial={{ opacity: 0, x: -10 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: 0.3 + i * 0.1 }}
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0 group-hover:scale-150 transition-transform" />
+                  <span className="text-muted-foreground group-hover:text-foreground transition-colors">
                     {service}
                   </span>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

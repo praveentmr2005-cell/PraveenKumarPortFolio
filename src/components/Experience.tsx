@@ -1,16 +1,37 @@
 import { ArrowUpRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-24 border-t border-border">
+    <section id="experience" className="py-24 border-t border-border/50">
       <div className="container mx-auto px-6">
-        <p className="section-heading mb-12">Experience</p>
+        <motion.p
+          className="section-heading mb-12"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          Experience
+        </motion.p>
 
-        <div className="max-w-3xl">
-          <div className="border-l-2 border-border pl-8 pb-2">
+        <motion.div
+          className="max-w-3xl"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <div className="border-l-2 border-border/50 pl-8 pb-2">
             <div className="relative">
               {/* Timeline marker */}
-              <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-accent border-4 border-background" />
+              <motion.div
+                className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-accent border-4 border-background"
+                initial={{ scale: 0 }}
+                whileInView={{ scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: 0.2, type: "spring" }}
+              />
 
               {/* Header */}
               <div className="flex items-start justify-between mb-4">
@@ -18,16 +39,17 @@ const Experience = () => {
                   <h3 className="text-xl font-semibold">
                     Product Engineering Intern
                   </h3>
-                  <a
+                  <motion.a
                     href="https://liquidmind.ai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-accent hover:underline inline-flex items-center gap-1"
+                    whileHover={{ x: 2 }}
                   >
                     LiquidMind.AI <ArrowUpRight className="w-3 h-3" />
-                  </a>
+                  </motion.a>
                 </div>
-                <span className="text-sm font-mono text-muted-foreground">
+                <span className="text-sm font-mono text-muted-foreground glass-card px-3 py-1">
                   Jun – Jul 2025
                 </span>
               </div>
@@ -61,15 +83,30 @@ const Experience = () => {
                 </p>
               </div>
 
-              {/* Evidence (not a checklist) */}
-              <div className="flex flex-wrap gap-2 pt-6">
-                <span className="metric-badge">~90% latency reduction</span>
-                <span className="metric-badge">12–16 docs/min sustained</span>
-                <span className="metric-badge">99%+ extraction accuracy</span>
-              </div>
+              {/* Evidence */}
+              <motion.div
+                className="flex flex-wrap gap-2 pt-6"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                {["~90% latency reduction", "12–16 docs/min sustained", "99%+ extraction accuracy"].map((metric, i) => (
+                  <motion.span
+                    key={metric}
+                    className="metric-badge"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.4 + i * 0.1 }}
+                  >
+                    {metric}
+                  </motion.span>
+                ))}
+              </motion.div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
