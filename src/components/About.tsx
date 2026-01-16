@@ -1,12 +1,30 @@
+import { motion } from "framer-motion";
+
 const About = () => {
   return (
-    <section id="about" className="py-24 border-t border-border">
-      <div className="container mx-auto px-6">
-        <p className="section-heading">About</p>
+    <section id="about" className="py-24 border-t border-border/50 relative">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/[0.02] to-transparent pointer-events-none" />
+
+      <div className="container mx-auto px-6 relative z-10">
+        <motion.p
+          className="section-heading"
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+        >
+          About
+        </motion.p>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
           {/* Narrative */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
             <h2 className="text-2xl md:text-3xl font-semibold mb-6">
               Systems-focused engineer with a bias for correctness and performance.
             </h2>
@@ -25,11 +43,17 @@ const About = () => {
               failure semantics interact in real-world workloads—and applying
               that understanding to both infrastructure and ML-adjacent systems.
             </p>
-          </div>
+          </motion.div>
 
           {/* Grounding & context */}
-          <div className="space-y-8">
-            <div>
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <div className="glass-card p-6">
               <h3 className="text-sm font-medium text-foreground mb-3">
                 Education
               </h3>
@@ -55,13 +79,18 @@ const About = () => {
                 Academic Focus
               </h3>
               <div className="flex flex-wrap gap-2">
-                <span className="tech-tag">Operating Systems</span>
-                <span className="tech-tag">Compilers</span>
-                <span className="tech-tag">Algorithms</span>
-                <span className="tech-tag">Distributed Systems</span>
-                <span className="tech-tag">Computer Architecture</span>
-                <span className="tech-tag">Databases</span>
-                <span className="tech-tag">Machine Learning Systems</span>
+                {["Operating Systems", "Compilers", "Algorithms", "Distributed Systems", "Computer Architecture", "Databases", "Machine Learning Systems"].map((item, i) => (
+                  <motion.span
+                    key={item}
+                    className="tech-tag"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.3, delay: 0.3 + i * 0.05 }}
+                  >
+                    {item}
+                  </motion.span>
+                ))}
               </div>
             </div>
 
@@ -76,7 +105,7 @@ const About = () => {
                 they are harder to implement.
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
