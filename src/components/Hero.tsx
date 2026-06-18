@@ -40,7 +40,7 @@ const Hero = () => {
       <div className="absolute bottom-1/4 -left-1/4 w-[450px] h-[450px] bg-accent/3 rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl">
+        <div className="max-w-3xl">
           {/* Dynamic Tagline */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -52,7 +52,7 @@ const Hero = () => {
           >
             <p
               key={taglineIndex}
-              className="text-muted-foreground text-sm font-mono mb-5"
+              className="text-muted-foreground text-sm font-mono mb-4"
             >
               {TAGLINES[taglineIndex]}
             </p>
@@ -72,12 +72,12 @@ const Hero = () => {
               duration: 0.6,
               delay: 0.2,
             }}
-            className="text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-none mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl font-semibold leading-tight mb-6"
           >
             Praveen Kumar TMR
           </motion.h1>
 
-          {/* Main Intro */}
+          {/* Intro */}
           <motion.p
             initial={{
               opacity: 0,
@@ -91,19 +91,19 @@ const Hero = () => {
               duration: 0.6,
               delay: 0.3,
             }}
-            className="text-lg md:text-2xl text-muted-foreground leading-relaxed max-w-3xl mb-10"
+            className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl"
           >
-            Computer Science student at IIITDM Chennai building
-            backend systems, distributed infrastructure, developer
-            tools, and ML-adjacent platforms.
+            Computer Science student at IIITDM Chennai focused on
+            backend engineering, distributed systems, and
+            performance-critical software.
             <br />
             <br />
-            Interested in performance engineering, systems design,
-            low-latency software, cloud-native architectures, and
-            the intersection of machine learning and systems.
+            Interested in systems design, low-latency
+            infrastructure, cloud-native platforms,
+            developer tooling, and ML systems.
           </motion.p>
 
-          {/* CTAs */}
+          {/* CTA Buttons */}
           <motion.div
             initial={{
               opacity: 0,
@@ -117,7 +117,7 @@ const Hero = () => {
               duration: 0.6,
               delay: 0.4,
             }}
-            className="flex flex-wrap gap-4 mb-12"
+            className="flex flex-wrap gap-4 mb-10"
           >
             <motion.a
               href="#projects"
@@ -139,7 +139,7 @@ const Hero = () => {
             </motion.a>
           </motion.div>
 
-          {/* Quick Highlights */}
+          {/* Technical Focus */}
           <motion.div
             initial={{
               opacity: 0,
@@ -153,7 +153,7 @@ const Hero = () => {
               duration: 0.6,
               delay: 0.5,
             }}
-            className="flex flex-wrap gap-3"
+            className="flex flex-wrap gap-2"
           >
             {[
               "Distributed Systems",
@@ -198,41 +198,41 @@ const Hero = () => {
               duration: 0.6,
               delay: 0.7,
             }}
-            className="flex flex-wrap gap-8 mt-14 pt-8 border-t border-border/50"
+            className="flex flex-wrap gap-6 mt-10 pt-6 border-t border-border/50"
           >
             <div>
-              <p className="text-2xl font-semibold text-accent">
+              <p className="text-xl font-semibold text-accent">
                 9.8M+
               </p>
-              <p className="text-sm text-muted-foreground">
-                Order matches/sec
+              <p className="text-xs text-muted-foreground">
+                ops/sec
               </p>
             </div>
 
             <div>
-              <p className="text-2xl font-semibold text-accent">
+              <p className="text-xl font-semibold text-accent">
                 2500+
               </p>
-              <p className="text-sm text-muted-foreground">
-                Users served
+              <p className="text-xs text-muted-foreground">
+                users served
               </p>
             </div>
 
             <div>
-              <p className="text-2xl font-semibold text-accent">
+              <p className="text-xl font-semibold text-accent">
                 99%+
               </p>
-              <p className="text-sm text-muted-foreground">
-                Extraction accuracy
+              <p className="text-xs text-muted-foreground">
+                extraction accuracy
               </p>
             </div>
 
             <div>
-              <p className="text-2xl font-semibold text-accent">
+              <p className="text-xl font-semibold text-accent">
                 400+
               </p>
-              <p className="text-sm text-muted-foreground">
-                Problems solved
+              <p className="text-xs text-muted-foreground">
+                problems solved
               </p>
             </div>
           </motion.div>
