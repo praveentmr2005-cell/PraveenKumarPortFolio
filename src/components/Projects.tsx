@@ -9,7 +9,7 @@ const Projects = () => {
       description:
         "Built a team secret management CLI and platform with AES-256-GCM encryption, GitHub OAuth authentication, project-scoped access control, audit logging, and secure secret distribution workflows.",
       liveUrl: "https://envx-eight.vercel.app/",
-      sourceUrl: "https://github.com/TMR2005/envx",
+      sourceUrl: "https://github.com/TMR2005/envx-sync",
     },
     {
       title: "Real-Time Collaborative Code Platform",
