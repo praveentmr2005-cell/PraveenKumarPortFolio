@@ -4,35 +4,43 @@ import { motion } from "framer-motion";
 const Projects = () => {
   const secondaryProjects = [
     {
+      title: "envx",
+      subtitle: "Encrypted secret management platform",
+      description:
+        "Built a team secret management CLI and platform with AES-256-GCM encryption, GitHub OAuth authentication, project-scoped access control, audit logging, and secure secret distribution workflows.",
+      liveUrl: "https://envx-eight.vercel.app/",
+      sourceUrl: "https://github.com/TMR2005/envx",
+    },
+    {
       title: "Real-Time Collaborative Code Platform",
       subtitle: "CRDT-based multi-user editor",
-      description: "Explored conflict-free synchronization using CRDTs, separating real-time collaboration paths from persistence and execution via Redis-backed queues.",
+      description:
+        "Explored conflict-free synchronization using CRDTs, separating real-time collaboration paths from persistence and execution via Redis-backed queues.",
       liveUrl: "https://collaborativecoder.vercel.app/",
-      sourceUrl: "https://github.com/TMR2005/CollaborativeCoder"
+      sourceUrl: "https://github.com/TMR2005/CollaborativeCoder",
     },
     {
       title: "MLinux – ML-Aware Linux Telemetry",
       subtitle: "GPU observability & optimization",
-      description: "Built a system-level telemetry daemon around NVIDIA NVML to surface GPU utilization, memory pressure, and starvation patterns in ML workloads.",
-      sourceUrl: "https://github.com/TMR2005/Mlinux"
-    },
-    {
-      title: "LANCast",
-      subtitle: "Offline LAN audio/video conferencing",
-      description: "Implemented a LAN-only conferencing system using TCP for control and UDP for low-latency media streaming under bandwidth constraints.",
-      sourceUrl: "https://github.com/TMR2005/LAN-Based-Conference-Application-for-Windows"
+      description:
+        "Built a system-level telemetry daemon around NVIDIA NVML to surface GPU utilization, memory pressure, and starvation patterns in ML workloads.",
+      sourceUrl: "https://github.com/TMR2005/Mlinux",
     },
     {
       title: "AI-Augmented Compiler for MiniC",
       subtitle: "Compiler pipeline with MIPS backend",
-      description: "Built a full compiler pipeline and explored LLM-assisted IR rewriting triggered by liveness-based register pressure analysis, with semantic verification to preserve correctness.",
-      sourceUrl: "https://github.com/TMR2005/AI-Augumented-Smart-Compiler"
-    }
+      description:
+        "Built a full compiler pipeline and explored LLM-assisted IR rewriting triggered by liveness-based register pressure analysis, with semantic verification to preserve correctness.",
+      sourceUrl:
+        "https://github.com/TMR2005/AI-Augumented-Smart-Compiler",
+    },
   ];
 
   return (
-    <section id="projects" className="py-28 border-t border-border/50 relative">
-      {/* Background accent */}
+    <section
+      id="projects"
+      className="py-28 border-t border-border/50 relative"
+    >
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/[0.03] rounded-full blur-3xl pointer-events-none" />
 
       <div className="container mx-auto px-6 max-w-6xl relative z-10">
@@ -46,7 +54,8 @@ const Projects = () => {
           Selected Systems
         </motion.p>
 
-        {/* Flagship Case Study */}
+        {/* Flagship Project */}
+
         <motion.div
           className="project-card mb-24 glow-accent"
           initial={{ opacity: 0, y: 30 }}
@@ -62,7 +71,10 @@ const Projects = () => {
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: 0.2 }}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.2,
+                  }}
                 >
                   Flagship case study
                 </motion.span>
@@ -72,9 +84,11 @@ const Projects = () => {
                 </h3>
 
                 <p className="text-muted-foreground max-w-2xl">
-                  A single-threaded matching engine built to study how
-                  data-structure choice, allocator behavior, and cache locality
-                  affect latency in exchange-style systems.
+                  A high-performance matching engine
+                  built to study how memory layout,
+                  allocator behavior, and cache
+                  locality influence latency in
+                  exchange-style systems.
                 </p>
               </div>
 
@@ -96,21 +110,37 @@ const Projects = () => {
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.3 }}
+              transition={{
+                duration: 0.5,
+                delay: 0.3,
+              }}
             >
-              {["9.8M ops/sec", "~101 ns/op avg", "~30% faster than std::map"].map((metric, i) => (
-                <span key={metric} className="metric-badge">{metric}</span>
+              {[
+                "9.8M ops/sec",
+                "~101 ns/op avg",
+                "~30% faster than std::map",
+              ].map((metric) => (
+                <span
+                  key={metric}
+                  className="metric-badge"
+                >
+                  {metric}
+                </span>
               ))}
             </motion.div>
 
             <div className="max-w-3xl text-sm md:text-base text-muted-foreground leading-relaxed mb-10">
               <p>
-                The system intentionally avoids concurrency to eliminate
-                synchronization overhead from the hot path, making performance
-                costs attributable to memory layout and allocation behavior.
-                Tree-based price levels were replaced with array-indexed levels
-                and intrusive FIFO lists to remove pointer chasing and heap
-                allocation during order matching.
+                The engine intentionally minimizes
+                runtime overhead by using
+                preallocated memory pools,
+                array-indexed price levels, and
+                intrusive FIFO queues to eliminate
+                heap allocations from the hot path.
+                The result is deterministic,
+                ultra-low-latency order matching
+                suitable for high-frequency trading
+                workloads.
               </p>
             </div>
 
@@ -118,7 +148,6 @@ const Projects = () => {
               href="/projects/limit-order-book"
               className="inline-flex items-center gap-2 text-sm font-medium underline-offset-4 hover:underline group"
               whileHover={{ x: 4 }}
-              transition={{ duration: 0.2 }}
             >
               Read the full design write-up
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -126,51 +155,71 @@ const Projects = () => {
           </div>
         </motion.div>
 
-        {/* Supporting Work */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {secondaryProjects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              className="project-card p-8 group"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: 0.1 + i * 0.1 }}
-              whileHover={{ y: -4 }}
-            >
-              <h4 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors">
-                {project.title}
-              </h4>
-              <p className="text-xs text-muted-foreground font-mono mb-4">
-                {project.subtitle}
-              </p>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-6">
-                {project.description}
-              </p>
+        {/* Secondary Projects */}
 
-              <div className="flex items-center gap-6">
-                {project.liveUrl && (
+        <div className="grid md:grid-cols-2 gap-6">
+          {secondaryProjects.map(
+            (project, i) => (
+              <motion.div
+                key={project.title}
+                className="project-card p-8 group"
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                }}
+                viewport={{
+                  once: true,
+                  margin: "-50px",
+                }}
+                transition={{
+                  duration: 0.5,
+                  delay: 0.1 + i * 0.1,
+                }}
+                whileHover={{ y: -4 }}
+              >
+                <h4 className="text-lg font-semibold mb-2 group-hover:text-accent transition-colors">
+                  {project.title}
+                </h4>
+
+                <p className="text-xs text-muted-foreground font-mono mb-4">
+                  {project.subtitle}
+                </p>
+
+                <p className="text-sm text-muted-foreground leading-relaxed mb-6">
+                  {project.description}
+                </p>
+
+                <div className="flex items-center gap-6">
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-medium underline-offset-4 hover:underline text-accent"
+                    >
+                      Live Demo
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+                  )}
+
                   <a
-                    href={project.liveUrl}
+                    href={project.sourceUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-sm font-medium underline-offset-4 hover:underline text-accent"
+                    className="text-sm text-muted-foreground underline-offset-4 hover:underline hover:text-foreground transition-colors"
                   >
-                    Live demo
-                    <ArrowRight className="w-4 h-4" />
+                    {project.liveUrl
+                      ? "Source"
+                      : "View Project"}
                   </a>
-                )}
-                <a
-                  href={project.sourceUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-muted-foreground underline-offset-4 hover:underline hover:text-foreground transition-colors"
-                >
-                  {project.liveUrl ? "Source" : "View project"}
-                </a>
-              </div>
-            </motion.div>
-          ))}
+                </div>
+              </motion.div>
+            )
+          )}
         </div>
       </div>
     </section>
